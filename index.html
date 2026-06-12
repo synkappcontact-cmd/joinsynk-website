@@ -246,24 +246,6 @@
       margin: 0 auto;
     }
 
-    /* Big logo in hero */
-    .hero-logo-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 28px;
-      animation: fadeDown .8s var(--ease) both;
-    }
-    .hero-logo-name {
-      font-size: clamp(48px, 8vw, 72px);
-      font-weight: 900;
-      letter-spacing: -3px;
-      background: linear-gradient(135deg, #EDE9FE, #F5F3FF);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
 
     .hero-tagline {
       font-size: clamp(26px, 4.5vw, 50px);
@@ -1009,8 +991,8 @@
   <div class="container">
     <div class="nav-inner">
       <a href="#" class="logo">
-        <img src="icon.png" style="width:32px;height:32px;border-radius:10px;object-fit:cover">
-        <span class="grad-text">Synk</span>
+        <img src="icon.png" alt="Synk" style="width:32px;height:32px;border-radius:10px;object-fit:cover;">
+        <span class="grad-text" style="font-size:19px;font-weight:900">Synk</span>
       </a>
 
       <div class="nav-links">
@@ -1040,10 +1022,7 @@
     <div class="hero-content">
 
       <!-- Logo -->
-      <div class="hero-logo-wrap">
-        <img src="icon.png" alt="Synk" style="width:80px;height:80px;border-radius:20px;object-fit:cover;display:block;margin:0 auto 16px auto">
-        <span class="hero-logo-name">Synk</span>
-      </div>
+      <img src="icon.png" alt="Synk" style="width:72px;height:72px;border-radius:20px;object-fit:cover;display:block;margin:0 auto 20px auto;">
 
       <h1 class="hero-tagline">
         Au-delà du physique,<br>les vrais points communs.<br>
