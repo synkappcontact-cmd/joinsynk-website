@@ -1,1 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email vérifié – Synk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --bg:           #08031A;
+      --purple:       #7C3AED;
+      --purple-light: #A78BFA;
+      --pink-mid:     #EC4899;
+      --text:         #F5F3FF;
+      --text-2:       #DDD6FE;
+      --text-muted:   #9b82f3;
+      --card-border:  rgba(139,92,246,.2);
+      --ease: cubic-bezier(.4,0,.2,1);
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(110px);
+      opacity: .28;
+      animation: blobPulse 8s ease-in-out infinite alternate;
+    }
+    .blob-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, #7C3AED, transparent 70%);
+      top: -200px; left: -150px;
+    }
+    .blob-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, #EC4899, transparent 70%);
+      bottom: -150px; right: -100px;
+      animation-delay: -3s;
+    }
+    @keyframes blobPulse {
+      0%   { transform: scale(1); }
+      100% { transform: scale(1.12); }
+    }
+
+    .star {
+      position: fixed;
+      border-radius: 50%;
+      background: #fff;
+      animation: twinkle var(--d,3s) ease-in-out infinite;
+      animation-delay: var(--dl,0s);
+    }
+    @keyframes twinkle {
+      0%,100% { opacity: .06; }
+      50%      { opacity: .5; }
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, rgba(124,58,237,.12), rgba(219,39,119,.06));
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 52px 40px 44px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp .7s var(--ease) both;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--purple), var(--pink-mid), transparent);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 32px;
+      animation: fadeUp .7s var(--ease) .1s both;
+    }
+    .logo-wrap img {
+      width: 30px; height: 30px;
+      border-radius: 9px;
+      object-fit: cover;
+    }
+    .logo-name {
+      font-size: 20px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #A78BFA, #EC4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .check-wrap {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 28px;
+      animation: fadeUp .7s var(--ease) .2s both;
+    }
+    .check-circle {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: rgba(34,197,94,.12);
+      border: 2px solid rgba(34,197,94,.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: popIn .6s var(--ease) .3s both;
+    }
+    @keyframes popIn {
+      0%   { transform: scale(0); opacity: 0; }
+      70%  { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .check-svg { width: 44px; height: 44px; }
+    .check-path {
+      stroke: #22C55E;
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+      animation: drawCheck .5s var(--ease) .7s forwards;
+    }
+    @keyframes drawCheck {
+      to { stroke-dashoffset: 0; }
+    }
+
+    .title {
+      font-size: clamp(20px, 4vw, 24px);
+      font-weight: 800;
+      letter-spacing: -.4px;
+      margin-bottom: 14px;
+      animation: fadeUp .7s var(--ease) .35s both;
+    }
+    .subtitle {
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      animation: fadeUp .7s var(--ease) .45s both;
+    }
+
+    .redirect-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      animation: fadeUp .7s var(--ease) .55s both;
+    }
+    .countdown {
+      display: inline-block;
+      font-weight: 700;
+      color: var(--purple-light);
+      min-width: 12px;
+    }
+
+    .progress-track {
+      height: 3px;
+      background: rgba(139,92,246,.15);
+      border-radius: 50px;
+      margin-top: 16px;
+      overflow: hidden;
+      animation: fadeUp .7s var(--ease) .6s both;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--purple), var(--pink-mid));
+      border-radius: 50px;
+      width: 100%;
+      transform-origin: left;
+      animation: shrink 5s linear .8s forwards;
+    }
+    @keyframes shrink {
+      from { transform: scaleX(1); }
+      to   { transform: scaleX(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+  <div id="stars"></div>
+
+  <div class="page">
+    <div class="card">
+
+      <div class="logo-wrap">
+        <img src="icon.png" alt="Synk">
+        <span class="logo-name">Synk</span>
+      </div>
+
+      <div class="check-wrap">
+        <div class="check-circle">
+          <svg class="check-svg" viewBox="0 0 44 44">
+            <polyline class="check-path" points="8,22 18,32 36,12"/>
+          </svg>
+        </div>
+      </div>
+
+      <h1 class="title">Email vérifié avec succès&nbsp;!</h1>
+
+      <p class="subtitle">
+        Tu peux maintenant ouvrir l'app Synk<br>pour continuer ton inscription.
+      </p>
+
+      <p class="redirect-note">
+        Redirection dans <span class="countdown" id="countdown">5</span>&nbsp;s…
+      </p>
+      <div class="progress-track">
+        <div class="progress-fill"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      for (let i = 0; i < 70; i++) {
+        const s = document.createElement('div');
+        s.className = 'star';
+        const size = Math.random() * 2 + 0.4;
+        s.style.cssText = [
+          `width:${size}px`, `height:${size}px`,
+          `left:${Math.random()*100}%`, `top:${Math.random()*100}%`,
+          `--d:${(Math.random()*4+2).toFixed(1)}s`,
+          `--dl:${(Math.random()*5).toFixed(1)}s`,
+          `opacity:${(Math.random()*.25+.05).toFixed(2)}`
+        ].join(';');
+        document.body.appendChild(s);
+      }
+    })();
+
+    let n = 5;
+    const el = document.getElementById('countdown');
+    const iv = setInterval(() => {
+      n--;
+      el.textContent = n;
+      if (n <= 0) {
+        clearInterval(iv);
+        window.location.href = 'https://joinsynk.app';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
