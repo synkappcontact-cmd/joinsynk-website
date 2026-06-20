@@ -5,30 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Synk – Au-delà du physique, les vrais points communs. Enfin.</title>
   <meta name="description" content="Synk matche sur vos vraies affinités. 12 catégories de passions. Synk Pro : 9,99 € une seule fois, à vie.">
-  <meta name="keywords" content="application rencontre, dating app, affinités, compatibilité, France, Synk, matching, passions">
-  <meta name="author" content="Synk">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://joinsynk.app/">
-
-  <!-- Open Graph -->
   <meta property="og:title" content="Synk – Au-delà du physique, les vrais points communs.">
   <meta property="og:description" content="L'app qui matche sur ce qui compte vraiment. 9,99 € à vie, sans abonnement.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://joinsynk.app/">
-  <meta property="og:image" content="https://joinsynk.app/icon.png">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:site_name" content="Synk">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Synk – Au-delà du physique, les vrais points communs.">
-  <meta name="twitter:description" content="L'app qui matche sur ce qui compte vraiment. 9,99 € à vie, sans abonnement.">
-  <meta name="twitter:image" content="https://joinsynk.app/icon.png">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
+    /* ─────────────────────────────────────────
+       RESET & CUSTOM PROPERTIES
+    ───────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -70,6 +56,9 @@
     a   { color: inherit; text-decoration: none; }
     button { cursor: pointer; font-family: inherit; }
 
+    /* ─────────────────────────────────────────
+       UTILITIES
+    ───────────────────────────────────────── */
     .container {
       width: 100%;
       max-width: 1200px;
@@ -115,6 +104,9 @@
       line-height: 1.75;
     }
 
+    /* ─────────────────────────────────────────
+       REVEAL ANIMATION
+    ───────────────────────────────────────── */
     .reveal {
       opacity: 0;
       transform: translateY(32px);
@@ -127,6 +119,9 @@
       transform: translateY(0);
     }
 
+    /* ─────────────────────────────────────────
+       NAVIGATION
+    ───────────────────────────────────────── */
     #navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -185,6 +180,9 @@
 
     @media (min-width: 768px) { .nav-links { display: flex; } }
 
+    /* ─────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────── */
     #hero {
       min-height: 100svh;
       display: flex;
@@ -228,6 +226,7 @@
       100% { transform: scale(1.12); }
     }
 
+    /* stars */
     .star {
       position: absolute;
       border-radius: 50%;
@@ -247,6 +246,7 @@
       margin: 0 auto;
     }
 
+
     .hero-tagline {
       font-size: clamp(26px, 4.5vw, 50px);
       font-weight: 800;
@@ -265,6 +265,7 @@
       animation: fadeUp .8s var(--ease) .25s both;
     }
 
+    /* Store buttons */
     .hero-buttons {
       display: flex;
       align-items: center;
@@ -322,6 +323,7 @@
       white-space: nowrap;
     }
 
+    /* Trust strip */
     .trust-strip {
       display: flex;
       align-items: center;
@@ -345,9 +347,14 @@
     }
     .trust-lbl { font-size: 13px; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
 
+    /* ─────────────────────────────────────────
+       CONCEPT
+    ───────────────────────────────────────── */
     #concept { padding: 100px 0; position: relative; }
+
     .concept-intro { max-width: 600px; }
 
+    /* Steps grid */
     .steps-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -384,6 +391,7 @@
     .step-title { font-size: 17px; font-weight: 700; margin-bottom: 9px; }
     .step-text  { font-size: 14px; color: var(--text-2); line-height: 1.7; }
 
+    /* Categories */
     .cats-header { margin-bottom: 28px; }
     .cats-header h3 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
     .cats-header p  { font-size: 15px; color: var(--text-muted); }
@@ -412,6 +420,9 @@
     .cat-emoji { font-size: 26px; display: block; margin-bottom: 7px; }
     .cat-name  { font-size: 11px; font-weight: 600; color: var(--text-2); }
 
+    /* ─────────────────────────────────────────
+       PRICING
+    ───────────────────────────────────────── */
     #pricing {
       padding: 100px 0;
       background: linear-gradient(180deg, transparent, rgba(76,29,149,.07), transparent);
@@ -421,16 +432,26 @@
     .pricing-header .section-desc { margin: 0 auto; }
 
     .pricing-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
       max-width: 920px;
       margin: 0 auto;
     }
-    @media (min-width: 768px) {
-      .pricing-grid { grid-template-columns: 2fr 1fr 1fr 1fr; align-items: start; }
+
+    .pricing-comp-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    @media (min-width: 560px) {
+      .pricing-comp-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 860px) {
+      .pricing-comp-grid { grid-template-columns: repeat(4, 1fr); }
     }
 
+    /* Synk card */
     .card-synk {
       background: linear-gradient(135deg, rgba(124,58,237,.18), rgba(219,39,119,.08));
       border: 1px solid rgba(139,92,246,.38);
@@ -498,11 +519,12 @@
     }
     .btn-dl:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(124,58,237,.42); }
 
+    /* Competitor cards */
     .card-comp {
       background: var(--glass);
       border: 1px solid var(--glass-border);
       border-radius: var(--r-lg);
-      padding: 24px 16px;
+      padding: 20px 14px;
       text-align: center;
     }
     .comp-name  { font-size: 14px; font-weight: 700; color: var(--text-2); margin-bottom: 3px; }
@@ -516,6 +538,7 @@
       display: inline-block;
     }
 
+    /* Savings banner */
     .savings-banner {
       max-width: 920px;
       margin: 20px auto 0;
@@ -532,7 +555,11 @@
     .savings-text { font-size: 14px; color: var(--text-2); line-height: 1.65; }
     .savings-text strong { color: var(--pink-light); }
 
+    /* ─────────────────────────────────────────
+       SCREENSHOTS / PHONES
+    ───────────────────────────────────────── */
     #screenshots { padding: 100px 0; }
+
     .screenshots-header { text-align: center; margin-bottom: 64px; }
     .screenshots-header .section-desc { margin: 0 auto; }
 
@@ -558,6 +585,7 @@
       color: var(--text-muted);
     }
 
+    /* Phone frame */
     .phone {
       width: 210px;
       height: 430px;
@@ -583,6 +611,7 @@
     .phone-left   { transform: rotate(-5deg) translateY(24px); }
     .phone-right  { transform: rotate(5deg)  translateY(24px); }
 
+    /* Notch */
     .notch {
       position: absolute;
       top: 10px; left: 50%;
@@ -593,6 +622,7 @@
       z-index: 10;
     }
 
+    /* ── SCREEN: DISCOVER ── */
     .scr {
       position: absolute; inset: 0;
       padding: 42px 12px 14px;
@@ -619,6 +649,7 @@
       font-size: 12px;
     }
 
+    /* Profile card on discover screen */
     .prof-card {
       background: linear-gradient(160deg, #1E0D3B, #2D1065);
       border-radius: 18px;
@@ -680,6 +711,7 @@
     }
     .act-star  { background: rgba(245,158,11,.13); border: 1px solid rgba(245,158,11,.25); }
 
+    /* ── SCREEN: MATCH ── */
     .match-body {
       flex: 1;
       display: flex; flex-direction: column;
@@ -722,6 +754,7 @@
       padding: 2.5px 6px; border-radius: 50px;
     }
 
+    /* ── SCREEN: CHAT ── */
     .chat-hdr {
       display: flex; align-items: center;
       gap: 7px; margin-bottom: 10px; padding: 0 3px;
@@ -764,6 +797,9 @@
       font-size: 9px; color: white;
     }
 
+    /* ─────────────────────────────────────────
+       NEWSLETTER
+    ───────────────────────────────────────── */
     #newsletter { padding: 100px 0; }
 
     .nl-card {
@@ -847,6 +883,9 @@
     .nl-success-txt { font-size: 20px; font-weight: 800; }
     .nl-success-sub { font-size: 14px; color: var(--text-muted); }
 
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
     footer {
       border-top: 1px solid var(--card-border);
       padding: 60px 0 36px;
@@ -893,6 +932,9 @@
       color: rgba(255,255,255,.22);
     }
 
+    /* ─────────────────────────────────────────
+       CGU MODAL
+    ───────────────────────────────────────── */
     .modal-overlay {
       display: none;
       position: fixed; inset: 0;
@@ -931,6 +973,9 @@
     .modal-body p  { margin-bottom: 10px; }
     .modal-body a  { color: var(--purple-light); }
 
+    /* ─────────────────────────────────────────
+       KEYFRAMES
+    ───────────────────────────────────────── */
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-22px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -940,6 +985,7 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* Scrollbar */
     ::-webkit-scrollbar       { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 3px; }
@@ -947,6 +993,9 @@
 </head>
 <body>
 
+<!-- ═══════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════ -->
 <nav id="navbar">
   <div class="container">
     <div class="nav-inner">
@@ -954,17 +1003,22 @@
         <img src="icon.png" alt="Synk" style="width:32px;height:32px;border-radius:10px;object-fit:cover;">
         <span class="grad-text" style="font-size:19px;font-weight:900">Synk</span>
       </a>
+
       <div class="nav-links">
         <a href="#concept">Concept</a>
         <a href="#pricing">Tarifs</a>
         <a href="#screenshots">App</a>
         <a href="#newsletter">iOS bientôt</a>
       </div>
+
       <a href="#newsletter" class="nav-cta">Être notifié</a>
     </div>
   </div>
 </nav>
 
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
 <section id="hero">
   <div class="hero-bg">
     <div class="blob blob-1"></div>
@@ -972,16 +1026,23 @@
     <div class="blob blob-3"></div>
     <div id="stars"></div>
   </div>
+
   <div class="container">
     <div class="hero-content">
-      <img src="icon.png" alt="Synk application rencontre" style="width:72px;height:72px;border-radius:20px;object-fit:cover;display:block;margin:0 auto 20px auto;">
+
+      <!-- Logo -->
+      <img src="icon.png" alt="Synk" style="width:72px;height:72px;border-radius:20px;object-fit:cover;display:block;margin:0 auto 20px auto;">
+
       <h1 class="hero-tagline">
         Au-delà du physique,<br>les vrais points communs.<br>
         <span class="grad-text">Enfin.</span>
       </h1>
+
       <p class="hero-sub">
         Oubliez les swipes superficiels. Synk vous connecte avec des personnes qui partagent vos vraies passions — musique, cinéma, sport, voyage et bien plus.
       </p>
+
+      <!-- Store buttons -->
       <div class="hero-buttons">
         <a href="https://play.google.com/store/apps/details?id=com.synkapp" target="_blank" rel="noopener" class="btn-store btn-gplay">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
@@ -992,6 +1053,7 @@
             <span>Google Play</span>
           </div>
         </a>
+
         <div class="btn-store btn-apple" aria-disabled="true" title="Bientôt disponible sur iOS">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
             <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.4c1.42.07 2.4.74 3.22.8.95-.17 1.85-.84 3.1-.9 1.5-.08 2.92.57 3.72 1.63-3.24 1.93-2.4 6.17.56 7.37-.52 1.37-1.22 2.72-2.6 3.98zM12.03 7.25C11.86 5.03 13.64 3.22 15.73 3c.27 2.48-2.27 4.36-3.7 4.25z"/>
@@ -1002,6 +1064,8 @@
           </div>
         </div>
       </div>
+
+      <!-- Trust strip -->
       <div class="trust-strip">
         <div class="trust-item">
           <div class="trust-num" data-count="12">0</div>
@@ -1016,17 +1080,24 @@
           <div class="trust-lbl">Abonnement mensuel</div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════
+     CONCEPT
+═══════════════════════════════════════ -->
 <section id="concept">
   <div class="container">
+
     <div class="concept-intro reveal">
       <span class="section-tag">✦ Comment ça marche</span>
       <h2 class="section-title">Le matching par affinités,<br><span class="grad-text">autrement</span></h2>
       <p class="section-desc">Oubliez les jugements sur l'apparence. Synk analyse vos vraies passions pour vous connecter à des personnes qui vous ressemblent — au fond.</p>
     </div>
+
+    <!-- 3 Steps -->
     <div class="steps-grid">
       <div class="step-card reveal">
         <div class="step-num">01</div>
@@ -1047,6 +1118,8 @@
         <p class="step-text">Matchez avec des personnes qui vous ressemblent et démarrez une conversation qui a du sens dès le premier message.</p>
       </div>
     </div>
+
+    <!-- 12 Categories -->
     <div class="reveal" style="margin-top: 64px;">
       <div class="cats-header">
         <h3>12 catégories pour vous définir</h3>
@@ -1067,17 +1140,25 @@
         <div class="cat-card"><span class="cat-emoji">🏍️</span><span class="cat-name">Moto</span></div>
       </div>
     </div>
+
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════
+     PRICING
+═══════════════════════════════════════ -->
 <section id="pricing">
   <div class="container">
+
     <div class="pricing-header reveal">
       <span class="section-tag">✦ Tarifs</span>
       <h2 class="section-title">Un seul paiement.<br><span class="grad-text">À vie.</span></h2>
-      <p class="section-desc">Pendant que les concurrents vous abonnent à vie, nous vous libèrons pour toujours. 9,99 € une fois, c'est tout.</p>
+      <p class="section-desc">Pendant que les concurrents vous abonnent à vie, nous vous libèrent pour toujours. 9,99 € une fois, c'est tout.</p>
     </div>
+
     <div class="pricing-grid reveal">
+
+      <!-- Synk Pro -->
       <div class="card-synk">
         <div class="pricing-badge">⭐ Meilleure offre</div>
         <div class="pricing-app-name">Synk Pro</div>
@@ -1099,45 +1180,95 @@
           Télécharger sur Google Play
         </a>
       </div>
-      <div class="card-comp">
-        <div class="comp-name">Tinder</div>
-        <div class="comp-tier">Gold</div>
-        <div class="comp-price">29,99 €</div>
-        <div class="comp-cycle">par mois</div>
-        <div class="comp-total">≈ 360 €/an</div>
+
+      <div class="pricing-comp-grid">
+
+        <!-- Tinder -->
+        <div class="card-comp">
+          <div class="comp-name">Tinder</div>
+          <div class="comp-tier">Gold</div>
+          <div class="comp-price">29,99 €</div>
+          <div class="comp-cycle">par mois</div>
+          <div class="comp-total">≈ 360 €/an</div>
+        </div>
+
+        <!-- Bumble -->
+        <div class="card-comp">
+          <div class="comp-name">Bumble</div>
+          <div class="comp-tier">Premium+</div>
+          <div class="comp-price">24,99 €</div>
+          <div class="comp-cycle">par mois</div>
+          <div class="comp-total">≈ 300 €/an</div>
+        </div>
+
+        <!-- Hinge -->
+        <div class="card-comp">
+          <div class="comp-name">Hinge</div>
+          <div class="comp-tier">Preferred</div>
+          <div class="comp-price">19,99 €</div>
+          <div class="comp-cycle">par mois</div>
+          <div class="comp-total">≈ 240 €/an</div>
+        </div>
+
+        <div class="card-comp">
+          <div class="comp-name">Happn</div>
+          <div class="comp-tier">Premium</div>
+          <div class="comp-price">24,99 €</div>
+          <div class="comp-cycle">par mois</div>
+          <div class="comp-total">≈ 300 €/an</div>
+        </div>
+        <div class="card-comp">
+          <div class="comp-name">Badoo</div>
+          <div class="comp-tier">Premium</div>
+          <div class="comp-price">17,99 €</div>
+          <div class="comp-cycle">par mois</div>
+          <div class="comp-total">≈ 216 €/an</div>
+        </div>
+        <div class="card-comp">
+          <div class="comp-name">Fruitz</div>
+          <div class="comp-tier">Premium</div>
+          <div class="comp-price">10,99 €</div>
+          <div class="comp-cycle">par mois</div>
+          <div class="comp-total">≈ 132 €/an</div>
+        </div>
+        <div class="card-comp">
+          <div class="comp-name">Feeld</div>
+          <div class="comp-tier">Majestic</div>
+          <div class="comp-price">15,99 €</div>
+          <div class="comp-cycle">par mois</div>
+          <div class="comp-total">≈ 192 €/an</div>
+        </div>
+
       </div>
-      <div class="card-comp">
-        <div class="comp-name">Bumble</div>
-        <div class="comp-tier">Premium+</div>
-        <div class="comp-price">24,99 €</div>
-        <div class="comp-cycle">par mois</div>
-        <div class="comp-total">≈ 300 €/an</div>
-      </div>
-      <div class="card-comp">
-        <div class="comp-name">Hinge</div>
-        <div class="comp-tier">Preferred</div>
-        <div class="comp-price">19,99 €</div>
-        <div class="comp-cycle">par mois</div>
-        <div class="comp-total">≈ 240 €/an</div>
-      </div>
+
     </div>
+
+    <!-- Savings callout -->
     <div class="savings-banner reveal">
       <span class="savings-icon">💡</span>
       <p class="savings-text">
         Avec Synk Pro à <strong>9,99 € à vie</strong>, vous économisez en moyenne <strong>300 à 360 € par an</strong> par rapport aux abonnements mensuels des concurrents — et vous gardez l'accès pour toujours.
       </p>
     </div>
+
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════
+     SCREENSHOTS / PHONES
+═══════════════════════════════════════ -->
 <section id="screenshots">
   <div class="container">
+
     <div class="screenshots-header reveal">
       <span class="section-tag">✦ L'application</span>
       <h2 class="section-title">Conçu pour<br><span class="grad-text">la vraie connexion</span></h2>
       <p class="section-desc">Une interface épurée qui met en avant ce qui vous unit — vos affinités communes — dès le premier regard.</p>
     </div>
+
     <div class="phones-wrap reveal">
+
+      <!-- Phone 1 : Discover -->
       <div class="phone-slot">
         <div class="phone phone-left">
           <div class="notch"></div>
@@ -1172,6 +1303,8 @@
         </div>
         <div class="phone-lbl">Découverte</div>
       </div>
+
+      <!-- Phone 2 : Match (centre) -->
       <div class="phone-slot">
         <div class="phone phone-center">
           <div class="notch"></div>
@@ -1207,6 +1340,8 @@
         </div>
         <div class="phone-lbl">Match</div>
       </div>
+
+      <!-- Phone 3 : Chat -->
       <div class="phone-slot">
         <div class="phone phone-right">
           <div class="notch"></div>
@@ -1233,25 +1368,39 @@
         </div>
         <div class="phone-lbl">Discussion</div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════
+     NEWSLETTER
+═══════════════════════════════════════ -->
 <section id="newsletter">
   <div class="container">
     <div class="nl-card reveal">
       <span class="nl-icon"></span>
       <h2 class="nl-title">Synk arrive sur <span class="grad-text">iOS</span></h2>
       <p class="nl-desc">Laissez votre email et soyez parmi les premiers notifiés dès que Synk débarque sur l'App Store.</p>
+
       <form class="nl-form" id="nlForm" novalidate>
-        <input type="email" class="nl-input" id="nlEmail" placeholder="votre@email.com" required autocomplete="email">
+        <input
+          type="email"
+          class="nl-input"
+          id="nlEmail"
+          placeholder="votre@email.com"
+          required
+          autocomplete="email"
+        >
         <button type="submit" class="nl-btn">Me notifier</button>
       </form>
+
       <div class="nl-success" id="nlSuccess">
         <span class="nl-success-ico">🎉</span>
         <span class="nl-success-txt">Vous êtes sur la liste !</span>
         <span class="nl-success-sub">On vous prévient dès le lancement iOS.</span>
       </div>
+
       <p class="nl-legal">
         Aucun spam. Votre adresse reste confidentielle.
         <a href="https://synkappcontact-cmd.github.io/joinsynk-privacy/" target="_blank" rel="noopener">Politique de confidentialité</a>
@@ -1260,16 +1409,21 @@
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
 <footer>
   <div class="container">
     <div class="footer-top">
+
       <div class="footer-brand">
         <a href="#" class="logo" style="margin-bottom:0">
-          <img src="icon.png" alt="Synk" style="width:30px;height:30px;border-radius:9px">
+          <img src="icon.png" style="width:30px;height:30px;border-radius:9px">
           <span class="grad-text" style="font-size:19px;font-weight:900">Synk</span>
         </a>
         <p class="footer-tagline">Au-delà du physique, les vrais points communs. L'app qui matche sur ce qui compte vraiment.</p>
       </div>
+
       <div class="footer-cols">
         <div class="footer-col">
           <h4>Application</h4>
@@ -1285,7 +1439,7 @@
           <ul>
             <li><a href="https://synkappcontact-cmd.github.io/joinsynk-privacy/" target="_blank" rel="noopener">Confidentialité</a></li>
             <li><a href="#" id="cguLink">CGU</a></li>
-            <li><a href="mailto:contact@joinsynk.app">Contact</a></li>
+            <li><a href="mailto:contact@synkapp.fr">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1296,7 +1450,9 @@
           </ul>
         </div>
       </div>
+
     </div>
+
     <div class="footer-bottom">
       <span>© 2026 Synk. Tous droits réservés.</span>
       <span>Fait avec 💜 en France</span>
@@ -1304,6 +1460,9 @@
   </div>
 </footer>
 
+<!-- ═══════════════════════════════════════
+     CGU MODAL
+═══════════════════════════════════════ -->
 <div class="modal-overlay" id="cguModal" role="dialog" aria-modal="true" aria-labelledby="cguTitle">
   <div class="modal">
     <div class="modal-hdr">
@@ -1311,34 +1470,49 @@
       <button class="modal-close-btn" id="cguClose" aria-label="Fermer">✕</button>
     </div>
     <div class="modal-body">
-      <p><strong>Dernière mise à jour :</strong> Juin 2026</p>
+      <p><strong>Dernière mise à jour :</strong> Juin 2024</p>
+
       <h3>1. Acceptation des conditions</h3>
       <p>En téléchargeant ou en utilisant l'application Synk, vous acceptez d'être lié par les présentes Conditions Générales d'Utilisation. Si vous refusez ces conditions, veuillez ne pas utiliser l'application.</p>
+
       <h3>2. Description du service</h3>
       <p>Synk est une application de rencontres et de mise en relation basée sur les affinités et les centres d'intérêt communs. Le service permet aux utilisateurs de se connecter avec d'autres personnes partageant leurs passions à travers 12 catégories.</p>
+
       <h3>3. Conditions d'accès</h3>
       <p>Vous devez avoir au minimum 18 ans pour créer un compte et utiliser Synk. En vous inscrivant, vous confirmez avoir l'âge légal requis dans votre pays de résidence.</p>
+
       <h3>4. Synk Pro — Achat unique</h3>
       <p>Synk Pro est proposé à 9,99 € en achat unique et définitif. Ce paiement unique débloque l'ensemble des fonctionnalités premium de manière permanente, sans abonnement récurrent. L'achat est non remboursable sauf défaut technique avéré, conformément à la réglementation applicable.</p>
+
       <h3>5. Comportement des utilisateurs</h3>
       <p>Les utilisateurs s'engagent à ne pas utiliser Synk à des fins illicites, à respecter les autres membres, à ne pas publier de contenu offensant, et à fournir des informations véridiques dans leur profil.</p>
+
       <h3>6. Modération et suspension</h3>
       <p>Synk se réserve le droit de suspendre ou supprimer tout compte ne respectant pas les présentes CGU, sans préavis ni remboursement.</p>
+
       <h3>7. Propriété intellectuelle</h3>
       <p>L'application Synk, son logo, son design et l'ensemble de ses contenus sont protégés par les droits de propriété intellectuelle. Toute reproduction non autorisée est strictement interdite.</p>
+
       <h3>8. Limitation de responsabilité</h3>
       <p>Synk ne saurait être tenu responsable des interactions entre utilisateurs. L'application est fournie « en l'état ». Nous ne garantissons pas que les rencontres aboutiront à des relations durables.</p>
+
       <h3>9. Protection des données</h3>
       <p>Le traitement de vos données personnelles est régi par notre <a href="https://synkappcontact-cmd.github.io/joinsynk-privacy/" target="_blank" rel="noopener">Politique de Confidentialité</a>.</p>
+
       <h3>10. Modifications des CGU</h3>
       <p>Nous nous réservons le droit de modifier les présentes CGU à tout moment. Les utilisateurs seront informés de tout changement substantiel.</p>
+
       <h3>11. Contact</h3>
-      <p>Pour toute question relative aux présentes CGU : <a href="mailto:contact@joinsynk.app">contact@joinsynk.app</a></p>
+      <p>Pour toute question relative aux présentes CGU : <a href="mailto:contact@synkapp.fr">contact@synkapp.fr</a></p>
     </div>
   </div>
 </div>
 
+<!-- ═══════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════ -->
 <script>
+  /* ── Stars ── */
   (function () {
     const container = document.getElementById('stars');
     for (let i = 0; i < 90; i++) {
@@ -1358,11 +1532,13 @@
     }
   })();
 
+  /* ── Sticky nav ── */
   const nav = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 50);
   }, { passive: true });
 
+  /* ── Scroll reveal ── */
   const revealObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1373,6 +1549,7 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
+  /* ── Animated counter ── */
   function countUp(el, target) {
     let n = 0;
     const step = target / 28;
@@ -1392,6 +1569,7 @@
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
 
+  /* ── Newsletter form ── */
   document.getElementById('nlForm').addEventListener('submit', function (e) {
     e.preventDefault();
     const email = document.getElementById('nlEmail').value.trim();
@@ -1401,6 +1579,7 @@
     success.style.display = 'flex';
   });
 
+  /* ── CGU Modal ── */
   const cguModal  = document.getElementById('cguModal');
   const cguLink   = document.getElementById('cguLink');
   const cguClose  = document.getElementById('cguClose');
@@ -1421,6 +1600,7 @@
   cguModal.addEventListener('click', e => { if (e.target === cguModal) closeCGU(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCGU(); });
 
+  /* ── Smooth scroll for in-page links ── */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const id = a.getAttribute('href');
